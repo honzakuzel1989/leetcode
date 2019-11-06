@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "996. Number of Squareful Arrays", "996. Number of Squareful Arrays\996. Number of Squareful Arrays.csproj", "{8BB9A46D-3FAE-44F2-A694-9B76436F7FA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BB9A46D-3FAE-44F2-A694-9B76436F7FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB9A46D-3FAE-44F2-A694-9B76436F7FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB9A46D-3FAE-44F2-A694-9B76436F7FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB9A46D-3FAE-44F2-A694-9B76436F7FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7A88305-C09E-4B17-B069-7685D1D887A0}
+	EndGlobalSection
+EndGlobal
