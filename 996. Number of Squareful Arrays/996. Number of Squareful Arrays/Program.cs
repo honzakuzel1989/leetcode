@@ -31,8 +31,8 @@ namespace _996._Number_of_Squareful_Arrays
     }
 
     /// <summary>
-    /// Time complexity = O(n^3)
-    /// Space complexity = O(n^2)
+    /// Time complexity = O(N^3 + C), where N is length of A
+    /// Space complexity = O(N^2 + C), where N is length of A
     /// </summary>
     public class Solution
     {
