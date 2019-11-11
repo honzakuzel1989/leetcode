@@ -198,3 +198,6 @@ ModelManifest.xml
 
 # Temporary thumbmails
 Thumbs.db
+
+# .vscode directory
+.vscode/
