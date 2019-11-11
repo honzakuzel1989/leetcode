@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "857. Minimum Cost to Hire K Workers", "857. Minimum Cost to Hire K Workers\857. Minimum Cost to Hire K Workers.csproj", "{39F18201-7F91-43EF-AFA6-417C6D97D84A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39F18201-7F91-43EF-AFA6-417C6D97D84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F18201-7F91-43EF-AFA6-417C6D97D84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F18201-7F91-43EF-AFA6-417C6D97D84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F18201-7F91-43EF-AFA6-417C6D97D84A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABAA1261-0D6B-4384-8CF3-54F08B2892B4}
+	EndGlobalSection
+EndGlobal
