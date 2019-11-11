@@ -21,46 +21,53 @@ namespace _857._Minimum_Cost_to_Hire_K_Workers
     {
         public double MincostToHireWorkers(int[] quality, int[] wage, int K)
         {
-            var maxWage = wage.Max();
-            double qualityWithMaxWage = 0;
-
-            for (int i = 0; i < quality.Length; i++)
-            {
-                if (wage[i] >= maxWage)
-                {
-                    qualityWithMaxWage = quality[i];
-                }
-            }
-
-            var ratio = new double[quality.Length];
-            for (int q = 0; q < quality.Length; q++)
-            {
-                // Recalculate ratio
-                ratio[q] = quality[q] / qualityWithMaxWage;
-            }
-
-            var combinations = new List<(double ratio, int wage)[]>();
+            var workerGroups = new List<int[]>();
             for (int i = 0; i < quality.Length - 1; i++)
             {
-                var res = GenerateK(i + 1, ratio, wage, K, new List<(double, int)> { (ratio[i], wage[i]) });
-                combinations = combinations.Concat(res).Where(c => c.Length == K).ToList();
+                var res = GenerateWorkersGroups(i + 1, wage.Length, K, new List<int> { i });
+                workerGroups = workerGroups.Concat(res).Where(c => c.Length == K).ToList();
             }
 
-            var prices = combinations.Select((c, i) => (index: i, price: c.Sum(x => (x.ratio * maxWage < x.wage ? x.wage : x.ratio * maxWage))));
-            return prices.Min(p => p.price);
+            var prices = new List<double>();
+            foreach (var workerGroup in workerGroups)
+            {
+                var maxWage = 0;
+                var qualityWithMaxWage = 0;
+
+                for (int i = 0; i < workerGroup.Length; i++)
+                {
+                    if (wage[workerGroup[i]] > maxWage)
+                    {
+                        maxWage = wage[workerGroup[i]];
+                        qualityWithMaxWage = quality[workerGroup[i]];
+                    }
+                }
+
+                var ratio = new double[quality.Length];
+
+                for (int i = 0; i < quality.Length; i++)
+                {
+                    ratio[i] = quality[i] / (double)qualityWithMaxWage;
+                }
+
+                var price = workerGroup.Sum(w => ratio[w] * maxWage < wage[w] ? wage[w] : ratio[w] * maxWage);
+                prices.Add(price);
+            }
+
+            return prices.Min();
         }
 
-        public List<(double ratio, int wage)[]> GenerateK(int curr, double[] ratio, int[] wage, int K, List<(double, int)> items)
+        public List<int[]> GenerateWorkersGroups(int curr, int numOfWorkes, int K, List<int> workers)
         {
-            if (items.Count == K)
-                return new List<(double ratio, int wage)[]> { items.ToArray() };
+            if (workers.Count == K)
+                return new List<int[]> { workers.ToArray() };
 
-            var result = new List<(double, int)[]>();
-            for (int i = curr; i < wage.Length; i++)
+            var result = new List<int[]>();
+            for (int i = curr; i < numOfWorkes; i++)
             {
-                items.Add((ratio[i], wage[i]));
-                result = result.Concat(GenerateK(i + 1, ratio, wage, K, items)).ToList();
-                items = new List<(double, int)> { (ratio[curr - 1], wage[curr - 1]) };
+                workers.Add(i);
+                result = result.Concat(GenerateWorkersGroups(i + 1, numOfWorkes, K, workers)).ToList();
+                workers = new List<int> { curr - 1 };
             }
 
             return result;
